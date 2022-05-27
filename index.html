@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Assessment</title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="card my-2">
+            <div class="card-body">
+                <p>Adair Emanuel Gonzalez Vega - May 26th 2022</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+              <h1>Excercise 1</h1>
+            <p>Write the program that monitor a possibly infinite stream of characters from the keyboard (standard 
+                input). <br><br>If it detects the sequence "aaa" it outputs a "0". If it detects the sequence "aba" it outputs a 
+                "1". DO NOT detect sequences within sequences. 
+                <br><br>The program should exit cleanly when it detects 
+                an <End Of Line>. <br><br>For example:<br><br>
+                    The following sequence <strong>aababaaabaaa</strong> <End Of Line> would produce the following result: 100
+                <br>While the following sequence <strong>aaababaaaabbababa</strong> <End Of Line> would produce the following 
+                result: 0101</p>
+        
+                <h2>My result:</h2>
+                <p id="result"></p>
+                <p id="result2"></p>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <h1>Excercise 2</h1>
+                <p>Given a string describing the number of objects you bought in a shop, code a solution that gives 
+                the total sum of products in the string:<br><br>
+                a. Example: <strong>“32 Pencils, 15 Pens, 2 notebooks”</strong>  - Answer: 49<br><br>
+                b. Other strings to test:<br>
+                i. “Nothing” - Answer: 0<br>
+                ii. “23567” - Answer: 23567<br>
+                iii. “adafgrgrgr56, adfddf2” - Answer 58</p>
+        
+            <h2>My result:</h2>
+            <p id="resultSum"></p>
+            <p id="resultSum2"></p>
+            <p id="resultSum3"></p>
+            <p id="resultSum4"></p>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <h3>Excercise 3</h3>
+                <p>
+                    Given an array of strings with file names you must check that you don't have duplicate file names 
+                    in the array. In case you found repeated names you should rename the file adding “(x)” …. X is the 
+                    smallest integer such that the obtained name is not used yet.
+                </p>
+                <p>
+                    a. Example: ["txt", "txt", "image", "txt(1)", "txt"] - Answer: ["txt", "txt(1)", "image", "txt(1)(1)",
+                    "txt(2)"]
+                </p><br>
+                <p>
+                    b. Other arrays to test:
+                    <br><br>i. ["file","file","file(1)","file(3)","file(2)","file(2)"] - Answer:
+                    ["file","file(1)","file(1)(1)","file(3)","file(2)","file(2)(1)"]
+                    <br><br>ii. ["b(1)","b(6)","b","b","b","b","b","b","b","b","b","b"] - Answer:
+                    ["b(1)","b(6)","b","b(2)","b(3)","b(4)","b(5)","b(7)","b(8)","b(9)","b(10)","b(11)"]
+                </p>
+                <h2>My result:</h2>
+                <p id="resultArray"></p>
+                <p id="resultArray2"></p>
+                <p id="resultArray3"></p>
+            </div>
+        </div>
+        <hr>
+        <div class="card mb-2">
+            <div class="card-body">
+              <h1>Excercise 4</h1>
+              <p>Complete below statement.<br><br>
+                  a. Write an SQL statement that lists worker first name, last name and department name for 
+                  those workers that are over 30 years old and their department is not Taxes.<br><br>
+                  b. Write an SQL statement that lists the number of enrolled workers on each department 
+                  (excluding Security) and the Annual Expenses value per department that is the sum of 
+                  annual salary of all enrolled workers.</p>
+          
+              <h2>My result:</h2>
+      
+              <h3>a:</h3>
+              <p>SELECT w.firstName, w.lastName, d.departmentName <br></p>
+              <p>FROM workers w JOIN departments d ON w.departmentId = d.departmentId <br></p>
+              <p>WHERE w.age > 30 AND d.departmentName NOT LIKE "Taxes";</p>
+              <h3>b:</h3>
+              <p>
+                  SELECT d.departmentName, COUNT(w.*) as workersEnrrolled, COUNT(w.monthlySalary)
+                  <br><br>FROM workers w INNER JOIN departments d <br><br>
+                  ON w.departmentId = d.departmentId
+                  WHERE d.departmentName NOT LIKE "Security"<br><br>
+                  GROUP BY d.departmentName;
+              </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./excercise1.js"></script>
+    <script src="./excercise2.js"></script>
+    <script src="./excercise3.js"></script>
+</body>
+</html>
